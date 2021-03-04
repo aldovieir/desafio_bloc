@@ -7,6 +7,9 @@ import 'package:teste_bloc/widgets/logo_widget.dart';
 import '../app_import.dart';
 
 // ignore: must_be_immutable
+
+// PAGINA BASE ONDE E FEITA TODA ANIMAÇÃO E A TRANSIÇÃO ENTRE TODAS AS PAGINAS
+// ignore: must_be_immutable
 class StartPage extends StatefulWidget {
   PageController pageController;
   @override
@@ -14,7 +17,7 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  List<AnimationItem> animationlist = [];
+  List<AnimationRegister> animationlist = [];
   Tween<double> postionLogo;
   int _currentIndex;
   int _currentIndexColor = 0;
@@ -24,7 +27,7 @@ class _StartPageState extends State<StartPage> {
     super.initState();
     setState(() {
       delayAnimatiom(
-          AnimationItem(
+          AnimationRegister(
             name: 'logo_scale',
             tween: Tween<double>(begin: 0.0, end: 0.8),
           ),
@@ -89,10 +92,10 @@ class _StartPageState extends State<StartPage> {
                     buttonColor: listColors[_currentIndexColor].colors[1],
                   ),
                   CpfPage(),
-                  DataNascimentoPage(),
-                  NomeMaePage(),
-                  GeneroPage(),
-                  ConfirmarDadosPage(
+                  BirthDatepage(),
+                  NomeMotherPage(),
+                  GenrePage(),
+                  ConfirmRegisterPage(
                     pageController: widget.pageController,
                   )
                 ],
@@ -123,7 +126,6 @@ class _StartPageState extends State<StartPage> {
                 );
               },
             ),
-          
             AnimatedPositioned(
               top: _height * 0.85,
               right: _currentIndex == null || _currentIndex == 0 ? -40 : 10,

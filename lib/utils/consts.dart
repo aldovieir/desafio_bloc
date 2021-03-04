@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+// CLASSE DE LISTA DE CORES EM  GRADIENTE
 const List<LinearGradient> listColors = [
   LinearGradient(
     begin: Alignment.topCenter,

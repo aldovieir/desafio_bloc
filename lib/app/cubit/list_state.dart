@@ -9,21 +9,21 @@ class ListState extends Equatable {
 
   ListState.loading() : this._();
 
-  ListState.success(List<Item> itens, bool mock)
+  ListState.success(List<Register> itens, bool mock)
       : this._(status: ListStatus.success, itens: itens, mock: mock);
 
   ListState.failure() : this._(status: ListStatus.failure);
 
   ListStatus status;
-  List<Item> itens;
+  List<Register> itens;
   String cpf;
-  DateTime dataNascimento;
-  String genero;
-  String nomeMae;
+  DateTime birthDate;
+  String genre;
+  String motherName;
   int selected;
   bool mock = false;
 
-  List<String> generoList = [
+  List<String> genreList = [
     'Masculino',
     'Feminino',
     'Outros',
@@ -33,10 +33,10 @@ class ListState extends Equatable {
         status,
         itens,
         cpf,
-        dataNascimento,
-        genero,
-        nomeMae,
-        generoList,
+        birthDate,
+        genre,
+        motherName,
+        genreList,
         selected,
         mock
       ];

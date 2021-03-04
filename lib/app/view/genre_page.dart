@@ -6,12 +6,12 @@ import 'package:teste_bloc/widgets/change_color.dart';
 
 import '../app_import.dart';
 
-class GeneroPage extends StatefulWidget {
+class GenrePage extends StatefulWidget {
   @override
-  _GeneroPageState createState() => _GeneroPageState();
+  _GenrePageState createState() => _GenrePageState();
 }
-
-class _GeneroPageState extends State<GeneroPage> {
+// PAGINA DE INCLUSÃO DE GENERO
+class _GenrePageState extends State<GenrePage> {
   @override
   // ignore: must_call_super
   Widget build(BuildContext context) {
@@ -44,11 +44,11 @@ class _GeneroPageState extends State<GeneroPage> {
                 children: <Widget>[
                   ChangeColor(
                     selected: state.selected,
-                    genero: state.generoList[0],
+                    genre: state.genreList[0],
                     onTap: () {
                       setState(() {
                         state.selected = 0;
-                        state.genero = state.generoList[0];
+                        state.genre = state.genreList[0];
                       });
                     },
                     index: 0,
@@ -56,25 +56,25 @@ class _GeneroPageState extends State<GeneroPage> {
                   ),
                   ChangeColor(
                     selected: state.selected,
-                    genero: state.generoList[1],
+                    genre: state.genreList[1],
                     index: 1,
                     linearGradient: listColors[1],
                     onTap: () {
                       setState(() {
                         state.selected = 1;
-                        state.genero = state.generoList[1];
+                        state.genre = state.genreList[1];
                       });
                     },
                   ),
                   ChangeColor(
                     selected: state.selected,
-                    genero: state.generoList[2],
+                    genre: state.genreList[2],
                     index: 2,
                     linearGradient: listColors[2],
                     onTap: () {
                       setState(() {
                         state.selected = 2;
-                        state.genero = state.generoList[2];
+                        state.genre = state.genreList[2];
                       });
                     },
                   ),

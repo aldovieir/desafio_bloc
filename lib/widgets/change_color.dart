@@ -6,7 +6,7 @@ class ChangeColor extends StatelessWidget {
   final int index;
   final double offset;
   final VoidCallback onTap;
-  final String genero;
+  final String genre;
   final int selected;
 
   const ChangeColor(
@@ -15,7 +15,7 @@ class ChangeColor extends StatelessWidget {
       this.index,
       this.onTap,
       this.linearGradient,
-      this.genero,
+      this.genre,
       this.selected})
       : super(key: key);
 
@@ -27,7 +27,7 @@ class ChangeColor extends StatelessWidget {
         onTap: onTap,
         child: Center(
           child: Container(
-            child: Center(child: Text(genero)),
+            child: Center(child: Text(genre)),
             height: 80,
             width: 80,
             decoration: BoxDecoration(

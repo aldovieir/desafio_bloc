@@ -7,6 +7,9 @@ import 'package:teste_bloc/utils/animation_item.dart';
 import 'package:teste_bloc/widgets/logo_widget.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
+
+//PAGINA QUE LISTA OS REGISTROS
+// COM O BOTÃO DE SE CADASTRAR E O QUE TROCA O REPOSITÓRIO
 class ListPage extends StatelessWidget {
   final PageController pageController;
   final Color buttonColor;
@@ -36,12 +39,13 @@ class ListPage extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class _ListView extends StatefulWidget {
   bool selectedMock = false;
   _ListView({Key key, this.items, this.pageController, this.buttonColor})
       : super(key: key);
 
-  final List<Item> items;
+  final List<Register> items;
   final PageController pageController;
   final Color buttonColor;
   @override
@@ -49,14 +53,14 @@ class _ListView extends StatefulWidget {
 }
 
 class __ListViewState extends State<_ListView> {
-  List<AnimationItem> animationlist = [];
+  List<AnimationRegister> animationlist = [];
   double _scaleHolder = 0;
 
   @override
   void initState() {
     super.initState();
     delayAnimatiom(
-        AnimationItem(
+        AnimationRegister(
           name: 'padding_top_label',
           tween: Tween<double>(begin: 0.0, end: 1),
         ),
@@ -66,7 +70,7 @@ class __ListViewState extends State<_ListView> {
       });
     });
     delayAnimatiom(
-        AnimationItem(
+        AnimationRegister(
           name: 'button_scale',
           tween: Tween<double>(begin: 0.0, end: 0.9),
         ),
@@ -100,7 +104,7 @@ class __ListViewState extends State<_ListView> {
                             opacity: value == 20 ? 0 : 1,
                             duration: Duration(milliseconds: 700),
                             child: Text(
-                              'Lista de Cadastros',
+                              'Lista de Registers',
                               style: TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
@@ -140,7 +144,7 @@ class __ListViewState extends State<_ListView> {
                                               child: SlideAnimation(
                                                 verticalOffset: 50.0,
                                                 child: FadeInAnimation(
-                                                  child: ItemTile(
+                                                  child: RegisterTile(
                                                     item: widget.items[index],
                                                     onDeletePressed: (id) {
                                                       showDialog(
@@ -160,13 +164,13 @@ class __ListViewState extends State<_ListView> {
                                                                       context
                                                                           .read<
                                                                               ListCubit>()
-                                                                          .deleteItemApi(
+                                                                          .deleteRegisterApi(
                                                                               widget.items[index]);
                                                                     } else {
                                                                       context
                                                                           .read<
                                                                               ListCubit>()
-                                                                          .deleteItem(
+                                                                          .deleteRegister(
                                                                               id);
                                                                     }
                                                                     Navigator.pop(
@@ -309,9 +313,7 @@ class __ListViewState extends State<_ListView> {
                                               context
                                                   .read<ListCubit>()
                                                   .fetchList();
-                                              context
-                                                  .read<ListCubit>()
-                                                  .selectedRepository();
+                                           
                                               Navigator.pop(context);
                                               state.mock = true;
                                             },
@@ -339,14 +341,14 @@ class __ListViewState extends State<_ListView> {
   }
 }
 
-class ItemTile extends StatelessWidget {
-  const ItemTile({
+class RegisterTile extends StatelessWidget {
+  const RegisterTile({
     Key key,
     @required this.item,
     this.onDeletePressed,
   }) : super(key: key);
 
-  final Item item;
+  final Register item;
   final ValueSetter<String> onDeletePressed;
 
   @override
@@ -366,7 +368,7 @@ class ItemTile extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  item.nomeMae,
+                  item.motherName,
                   style: TextStyle(fontSize: 12, color: Colors.black),
                   textAlign: TextAlign.center,
                 ),
@@ -400,9 +402,7 @@ class ItemTile extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  DateFormat('dd-MM-yyyy ')
-                      .format(item.dataNascimento)
-                      .toString(),
+                  DateFormat('dd-MM-yyyy ').format(item.birthDate).toString(),
                   style: TextStyle(fontSize: 12, color: Colors.black),
                   textAlign: TextAlign.center,
                 ),

@@ -1,16 +1,33 @@
-# teste_bloc
+# Desafio com Bloc
+Projeto criado com Bloc, animações;
 
-A new Flutter project.
+## PROJETO
 
-## Getting Started
+O projeto consiste em criar um cadastro com: CPF, DATA DE NASCIMENTO, GENERO, NOME DA MÃE.
 
-This project is a starting point for a Flutter application.
+Com 2 repositórios uma para testes MOCKADOS, e outro para produção API REST usado: https://603c2f43f4333a0017b673f2.mockapi.io/TestBloc
 
-A few resources to get you started if this is your first Flutter project:
+Telas do projeto:
+Lista de Registros: 
+![Alt text](https://github.com/aldovieir/CRUD_CRUDCRUD/blob/main/assets/crud.png "LISTA DE REGISTROS")
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+CPF:
+![Alt text](https://github.com/aldovieir/CRUD_CRUDCRUD/blob/main/assets/crud.png "CPF")
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+DATA DE NASCIMENTO:
+![Alt text](https://github.com/aldovieir/CRUD_CRUDCRUD/blob/main/assets/crud.png "DATA DE NASCIMENTO")
+
+NOME DA MÃE:
+![Alt text](https://github.com/aldovieir/CRUD_CRUDCRUD/blob/main/assets/crud.png "NOME DA MÃE")
+
+GENERO:
+![Alt text](https://github.com/aldovieir/CRUD_CRUDCRUD/blob/main/assets/crud.png "GENERO")
+
+CONFIRMAÇÃO DOS DADOS:
+![Alt text](https://github.com/aldovieir/CRUD_CRUDCRUD/blob/main/assets/crud.png "CONFIRMAÇÃO DOS DADOS")
+
+
+
+
+
+

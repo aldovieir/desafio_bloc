@@ -5,6 +5,8 @@ import 'package:teste_bloc/widgets/logo_widget.dart';
 
 import '../app_import.dart';
 
+
+// PRIMEIRA PAGINA CARREGA COM A LOGO DEPOIS NAVEGA PARA PAGINA COM A LISTA DE REGISTROS
 class SplashPage extends StatefulWidget {
   final String title;
   const SplashPage({Key key, this.title = "Splash"}) : super(key: key);
@@ -14,7 +16,6 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State {
-  //use 'controller' variable to access controller
 
   @override
   void initState() {

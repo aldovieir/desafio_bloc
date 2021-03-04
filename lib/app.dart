@@ -8,47 +8,6 @@ import 'app/app_import.dart';
 import 'shared/repository/repository.dart';
 
 class App extends StatelessWidget {
-/*   App()
-      : super(
-          theme: ThemeData(
-              backgroundColor: Colors.blue,
-              primarySwatch: Colors.blue,
-              fontFamily: 'Google'),
-          debugShowCheckedModeBanner: false,
-          home: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (_) => ListCubit(repository: Repository())..fetchList(),
-                child: StartPage(),
-              ),
-              BlocProvider(
-                create: (_) => ListCubit(repository: Repository())..fetchList(),
-                child: ListPage(),
-              ),
-              BlocProvider(
-                create: (_) => ListCubit(repository: Repository())..fetchList(),
-                child: CpfPage(),
-              ),
-              BlocProvider(
-                create: (_) => ListCubit(repository: Repository())..fetchList(),
-                child: DataNascimentoPage(),
-              ),
-              BlocProvider(
-                create: (_) => ListCubit(repository: Repository())..fetchList(),
-                child: NomeMaePage(),
-              ),
-              BlocProvider(
-                create: (_) => ListCubit(repository: Repository())..fetchList(),
-                child: GeneroPage(),
-              ),
-              BlocProvider(
-                create: (_) => ListCubit(repository: Repository())..fetchList(),
-                child: ConfirmarDadosPage(),
-              )
-            ],
-            child: StartPage(),
-          ),
-        ); */
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -80,22 +39,22 @@ class App extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => ListCubit(repository: Repository())..fetchList(),
-          child: DataNascimentoPage(),
+          child: BirthDatepage(),
           lazy: false,
         ),
         BlocProvider(
           create: (_) => ListCubit(repository: Repository())..fetchList(),
-          child: NomeMaePage(),
+          child: NomeMotherPage(),
           lazy: false,
         ),
         BlocProvider(
           create: (_) => ListCubit(repository: Repository())..fetchList(),
-          child: GeneroPage(),
+          child: GenrePage(),
           lazy: false,
         ),
         BlocProvider(
           create: (_) => ListCubit(repository: Repository())..fetchList(),
-          child: ConfirmarDadosPage(),
+          child: ConfirmRegisterPage(),
           lazy: false,
         )
       ],

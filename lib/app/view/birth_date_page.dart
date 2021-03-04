@@ -4,13 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 
 import '../app_import.dart';
-
-class DataNascimentoPage extends StatefulWidget {
+//PAGINA DE INCLUSÃO DE DATA DE NASCIMENTO
+class BirthDatepage extends StatefulWidget {
   @override
-  _DataNascimentoPageState createState() => _DataNascimentoPageState();
+  _BirthDatepageState createState() => _BirthDatepageState();
 }
 
-class _DataNascimentoPageState extends State<DataNascimentoPage> {
+class _BirthDatepageState extends State<BirthDatepage> {
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
@@ -30,12 +30,12 @@ class _DataNascimentoPageState extends State<DataNascimentoPage> {
             Padding(
               padding: EdgeInsets.only(top: _height * 0.22),
               child: Text(
-                state.dataNascimento == null
+                state.birthDate == null
                     ? ''
-                    : DateTime.now().year - state.dataNascimento.year <= 18
+                    : DateTime.now().year - state.birthDate.year <= 18
                         ? 'Necessário ser maior de idade'
                         : DateFormat('dd-MM-yyyy ')
-                            .format(state.dataNascimento)
+                            .format(state.birthDate)
                             .toString(),
                 style: TextStyle(color: Colors.white, fontSize: 21),
               ),
@@ -55,16 +55,16 @@ class _DataNascimentoPageState extends State<DataNascimentoPage> {
                   context,
                   titleText: 'Selecione a data do seu nascimento !!!',
                   textColor: Colors.blueAccent,
-                  initialDate: state.dataNascimento == null
+                  initialDate: state.birthDate == null
                       ? DateTime.now()
-                      : state.dataNascimento,
+                      : state.birthDate,
                   firstDate: DateTime(1960),
                   dateFormat: "dd-MMMM-yyyy",
                   locale: DateTimePickerLocale.pt_br,
                   looping: true,
                 );
                 setState(() {
-                  state.dataNascimento = datePicked;
+                  state.birthDate = datePicked;
                 });
               },
               child: Text(

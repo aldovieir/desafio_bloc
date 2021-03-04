@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
+typedef AnimationCallBack = void Function(AnimationRegister animation);
 
-typedef AnimationCallBack = void Function(AnimationItem animation);
-
-
-class AnimationItem {
+// CLASSE DE ANIMAÇÕES
+class AnimationRegister {
   final String name;
   final Tween<double> tween;
 
-  AnimationItem({this.name, this.tween});
+  AnimationRegister({this.name, this.tween});
 }
-
-Tween findAnimation(
-    String name, double initialValue, List<AnimationItem> list) {
+// METODO DE ANIMAÇÃO DE POSIÇÃO DOS WIDGETS
+ Tween findAnimation(
+    String name, double initialValue, List<AnimationRegister> list) {
   try {
     if (list.length > 0) {
       var tween = list.where((element) => element.name == name);
@@ -25,9 +24,11 @@ Tween findAnimation(
   } catch (e) {
     return Tween<double>(begin: initialValue, end: initialValue);
   }
-}
+} 
 
-Future<void> delayAnimatiom(AnimationItem animation, Duration duration, AnimationCallBack function) async {
+//METODO DE ANIMAÇÃO DE DEFINIÇÃO DO TEMPO DE ANIMAÇÃO
+Future<void> delayAnimatiom(AnimationRegister animation, Duration duration,
+    AnimationCallBack function) async {
   await Future.delayed(duration, () {});
- function(animation);
+  function(animation);
 }

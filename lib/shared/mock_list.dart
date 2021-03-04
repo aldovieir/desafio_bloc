@@ -1,27 +1,27 @@
 import 'package:teste_bloc/app/app_import.dart';
 
 class MockList {
-  List<Item> getList() {
-    var a = Item(
+  List<Register> getList() {
+    var a = Register(
         cpf: '852.654.753.55',
-        dataNascimento: DateTime(1991, 12, 11),
-        genero: 'Masculino',
+        birthDate: DateTime(1991, 12, 11),
+        genre: 'Masculino',
         id: '1',
-        nomeMae: 'Maria Antonieta',
+        motherName: 'Maria Antonieta',
         isDeleting: false);
-    var b = Item(
+    var b = Register(
         cpf: '123..510.521.77',
-        dataNascimento: DateTime(1998, 7, 18),
-        genero: 'Masculino',
+        birthDate: DateTime(1998, 7, 18),
+        genre: 'Masculino',
         id: '2',
-        nomeMae: 'Lucia Alvez',
+        motherName: 'Lucia Alvez',
         isDeleting: false);
-    var c = Item(
+    var c = Register(
         cpf: '123.312.554-88',
-        dataNascimento: DateTime(1984, 1, 15),
-        genero: 'Masculino',
+        birthDate: DateTime(1984, 1, 15),
+        genre: 'Masculino',
         id: '3',
-        nomeMae: 'Geovana Alburquerque',
+        motherName: 'Geovana Alburquerque',
         isDeleting: false);
     return [a, b, c];
   }

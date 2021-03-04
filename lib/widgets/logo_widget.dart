@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:teste_bloc/utils/consts.dart';
 
+
+// WIDGET DO LOGO
 class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

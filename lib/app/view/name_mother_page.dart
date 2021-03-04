@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../app_import.dart';
 
-class NomeMaePage extends StatelessWidget {
+
+//PAGINA DE INCLUSÃO DO NOME DA MÃE
+class NomeMotherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
@@ -29,17 +31,20 @@ class NomeMaePage extends StatelessWidget {
                     children: <Widget>[
                       TextField(
                         controller: TextEditingController(
-                            text: state.nomeMae == 'Campo obrigatório' ||
-                                    state.nomeMae == 'Preencha Nome completo'
+                            text: state.motherName == 'Campo obrigatório' ||
+                                    state.motherName == 'Preencha Nome completo'
                                 ? ''
-                                : state.nomeMae),
+                                : state.motherName),
                         onChanged: (texto) {
-                          state.nomeMae = texto;
-                          if (state.nomeMae.isEmpty) {
-                            return state.nomeMae = 'Campo obrigatório';
-                          } else if (state.nomeMae.trim().split(' ').length <=
+                          state.motherName = texto;
+                          if (state.motherName.isEmpty) {
+                            return state.motherName = 'Campo obrigatório';
+                          } else if (state.motherName
+                                  .trim()
+                                  .split(' ')
+                                  .length <=
                               1) {
-                            return state.nomeMae = 'Preencha Nome completo';
+                            return state.motherName = 'Preencha Nome completo';
                           }
                           return null;
                         },
@@ -61,9 +66,9 @@ class NomeMaePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Text(
-                            state.nomeMae == 'Campo obrigatório'
+                            state.motherName == 'Campo obrigatório'
                                 ? 'Campo obrigatório'
-                                : state.nomeMae == 'Preencha Nome completo'
+                                : state.motherName == 'Preencha Nome completo'
                                     ? 'Preencha Nome completo'
                                     : 'NOME COMPLETO',
                             style:
@@ -82,5 +87,4 @@ class NomeMaePage extends StatelessWidget {
       );
     });
   }
-
 }

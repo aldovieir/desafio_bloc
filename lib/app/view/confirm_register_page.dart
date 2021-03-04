@@ -6,22 +6,25 @@ import 'package:teste_bloc/utils/animation_item.dart';
 import 'package:teste_bloc/widgets/logo_widget.dart';
 import '../app_import.dart';
 
-class ConfirmarDadosPage extends StatefulWidget {
+
+// PAGINA DE CONFIRMAÇÃO DE DADOS COM O BOTÃO DE TERMINAR 
+// O REGISTO O QUE SALVA DE ACORDO COM O REPOSITÓRO SELECIONADO
+class ConfirmRegisterPage extends StatefulWidget {
   final PageController pageController;
 
-  const ConfirmarDadosPage({Key key, this.pageController}) : super(key: key);
+  const ConfirmRegisterPage({Key key, this.pageController}) : super(key: key);
   @override
-  _ConfirmarDadosPageState createState() => _ConfirmarDadosPageState();
+  _ConfirmRegisterPageState createState() => _ConfirmRegisterPageState();
 }
 
-class _ConfirmarDadosPageState extends State<ConfirmarDadosPage> {
-  List<AnimationItem> animationlist = [];
+class _ConfirmRegisterPageState extends State<ConfirmRegisterPage> {
+  List<AnimationRegister> animationlist = [];
   double _scaleHolder = 0;
   @override
   void initState() {
     super.initState();
     delayAnimatiom(
-        AnimationItem(
+        AnimationRegister(
           name: 'padding_top_label',
           tween: Tween<double>(begin: 0.0, end: 1),
         ),
@@ -31,7 +34,7 @@ class _ConfirmarDadosPageState extends State<ConfirmarDadosPage> {
       });
     });
     delayAnimatiom(
-        AnimationItem(
+        AnimationRegister(
           name: 'button_scale',
           tween: Tween<double>(begin: 0.0, end: 1),
         ),
@@ -154,14 +157,14 @@ class _ConfirmarDadosPageState extends State<ConfirmarDadosPage> {
                                 return Transform.scale(
                                   scale: value,
                                   child: Text(
-                                    state.dataNascimento == null
+                                    state.birthDate == null
                                         ? 'Campo obrigatório'
                                         : DateTime.now().year -
-                                                    state.dataNascimento.year <=
+                                                    state.birthDate.year <=
                                                 18
                                             ? 'Necessário ser maior de idade'
                                             : DateFormat('dd-MM-yyyy ')
-                                                .format(state.dataNascimento)
+                                                .format(state.birthDate)
                                                 .toString(),
                                     style: TextStyle(
                                         fontSize: _width / 22,
@@ -209,9 +212,9 @@ class _ConfirmarDadosPageState extends State<ConfirmarDadosPage> {
                               return Transform.scale(
                                 scale: value,
                                 child: Text(
-                                  state.genero == null
+                                  state.genre == null
                                       ? 'Campo obrigatório'
-                                      : state.genero,
+                                      : state.genre,
                                   style: TextStyle(
                                       fontSize: _width / 22,
                                       color: Colors.white),
@@ -259,13 +262,13 @@ class _ConfirmarDadosPageState extends State<ConfirmarDadosPage> {
                                 return Transform.scale(
                                   scale: value,
                                   child: Text(
-                                    state.nomeMae == 'Campo obrigatório' ||
-                                            state.nomeMae == '' ||
-                                            state.nomeMae == null ||
-                                            state.nomeMae ==
+                                    state.motherName == 'Campo obrigatório' ||
+                                            state.motherName == '' ||
+                                            state.motherName == null ||
+                                            state.motherName ==
                                                 'Preencha Nome completo'
                                         ? 'Campo obrigatório'
-                                        : state.nomeMae,
+                                        : state.motherName,
                                     style: TextStyle(
                                         fontSize: _width / 22,
                                         color: Colors.white),
@@ -326,12 +329,12 @@ class _ConfirmarDadosPageState extends State<ConfirmarDadosPage> {
                                   ),
                                   onPressed: () {
                                     if (state.cpf == null ||
-                                        state.dataNascimento == null ||
+                                        state.birthDate == null ||
                                         DateTime.now().year -
-                                                state.dataNascimento.year <=
+                                                state.birthDate.year <=
                                             18 ||
-                                        state.genero == null ||
-                                        state.nomeMae == null) {
+                                        state.genre == null ||
+                                        state.motherName == null) {
                                       showDialog(
                                           context: context,
                                           builder: (_) {
@@ -351,13 +354,15 @@ class _ConfirmarDadosPageState extends State<ConfirmarDadosPage> {
                                           });
                                     } else {
                                       if (state.mock) {
-                                        context.read<ListCubit>().addCadastro();
+                                        context.read<ListCubit>().addRegister();
                                         widget.pageController.animateToPage(0,
                                             duration:
                                                 Duration(milliseconds: 1500),
                                             curve: Curves.easeInCubic);
                                       } else {
-                                        context.read<ListCubit>().addItemMock();
+                                        context
+                                            .read<ListCubit>()
+                                            .addRegisterMock();
                                         widget.pageController.animateToPage(0,
                                             duration:
                                                 Duration(milliseconds: 1500),
